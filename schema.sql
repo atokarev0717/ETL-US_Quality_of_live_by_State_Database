@@ -1,4 +1,3 @@
-
 -- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- Link to schema: https://app.quickdatabasediagrams.com/#/d/k71TIH
 
@@ -69,7 +68,6 @@ CREATE TABLE "public_schools" (
     "EndGrade" varchar   NOT NULL
 );
 
-
 CREATE TABLE "hospitals" (
 	"id" serial primary key,
     "state_id" integer   NOT NULL,
@@ -82,6 +80,9 @@ CREATE TABLE "hospitals" (
     "rating" float   NOT NULL
 );
 
+CREATE TABLE "regionCode" (
+	"code" int primary key,
+	"name" varchar);
 
 CREATE TABLE "unemployment" (
     "state_id" integer   NOT NULL,
@@ -97,12 +98,6 @@ CREATE TABLE "min_wage" (
     "min_wage" float   NOT NULL
 );
 
-CREATE TABLE "regionCode" (
-	"code" int primary key,
-	"name" varchar);
-	
-ALTER TABLE "unemployment" ADD CONSTRAINT "fk_regionCode_code" FOREIGN KEY ("regionCode")
-REFERENCES "regionCode" ("code");
 
 ALTER TABLE "housing" ADD CONSTRAINT "fk_housing_state_id" FOREIGN KEY("state_id")
 REFERENCES "state" ("state_id");
